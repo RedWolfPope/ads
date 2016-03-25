@@ -1,0 +1,47 @@
+.ads-unit {
+	margin: 5px auto;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	border: none;
+	position: relative;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.ads-unit a {
+	display: inline-block;
+	text-align: center;
+}
+.ads-unit img {
+	width: 100% !important;
+	height: auto !important;
+}
+.ads-unit-label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #fff;
+	background: rgba(255, 255, 255, 0.5);
+	color: #000000;
+    padding: 1px 9px;
+    font-size: 9px;
+	
+    -webkit-border-radius: 0 0 0 4px;
+	-moz-border-radius: 0 0 0 4px;
+	border-radius: 0 0 0 4px;
+}
+.ads-block.elgg-list {
+	border: none;
+	margin: 5px auto;
+	padding: 0;
+	list-style: none;
+}
+.ads-block.elgg-list > li {
+	border: none;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
