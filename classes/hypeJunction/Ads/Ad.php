@@ -115,8 +115,13 @@ class Ad extends Image implements PublishingInterface {
 			'page_url' => get_input('referrer_url', current_page_url()),
 		);
 		$this->annotate('impression', serialize($impression));
+
+		if (elgg_get_logged_in_user_guid() == $this->owner_guid || elgg_is_admin_logged_in()) {
+			return;
+		}
+
 		$this->impressions++;
-		if ($this->impressions % 1000 >= 0) {
+		if ($this->impressions >= 1000) {
 			$amount = (string) elgg_get_plugin_setting('cost_per_mille', 'ads', '0');
 			$currency = elgg_get_plugin_setting('currency', 'ads', 'EUR');
 			$money = Money::fromString($amount, new Currency($currency));
@@ -137,6 +142,11 @@ class Ad extends Image implements PublishingInterface {
 			'page_url' => get_input('referrer_url', current_page_url()),
 		);
 		$this->annotate('click', serialize($click));
+
+		if (elgg_get_logged_in_user_guid() == $this->owner_guid || elgg_is_admin_logged_in()) {
+			return;
+		}
+
 		$amount = (string) elgg_get_plugin_setting('cost_per_click', 'ads', '0');
 		$currency = elgg_get_plugin_setting('currency', 'ads', 'EUR');
 		$money = Money::fromString($amount, new Currency($currency));
